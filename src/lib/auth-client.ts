@@ -1,0 +1,45 @@
+"use client"
+import { createAuthClient } from "better-auth/react"
+import { useEffect, useState } from "react"
+
+export const authClient = createAuthClient({
+   baseURL: typeof window !== "undefined" 
+      ? `${window.location.origin}/api/auth` 
+      : process.env.NEXT_PUBLIC_AUTH_BASE_URL || "",
+   fetchOptions: {
+      credentials: "include",
+   },
+});
+
+type SessionData = ReturnType<typeof authClient.useSession>
+
+export function useSession(): SessionData {
+   const [session, setSession] = useState<any>(null);
+   const [isPending, setIsPending] = useState(true);
+   const [error, setError] = useState<any>(null);
+
+   const refetch = () => {
+      setIsPending(true);
+      setError(null);
+      fetchSession();
+   };
+
+   const fetchSession = async () => {
+      try {
+         const res = await authClient.getSession();
+         setSession(res.data);
+         setError(null);
+      } catch (err) {
+         setSession(null);
+         setError(err);
+      } finally {
+         setIsPending(false);
+      }
+   };
+
+   useEffect(() => {
+      fetchSession();
+   }, []);
+
+   return { data: session, isPending, error, refetch };
+}

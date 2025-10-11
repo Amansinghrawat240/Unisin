@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "sameer",
+    "email": "desikiller11y@gmail.com",
+    "password": "8191056428@Sam",
+    "createdAt": 1758970713623
+  },
+  {
+    "id": 2,
+    "name": "sameer",
+    "email": "teamsameer1432@gmail.com",
+    "password": "8191056428",
+    "createdAt": 1758973734311
+  }
+]
