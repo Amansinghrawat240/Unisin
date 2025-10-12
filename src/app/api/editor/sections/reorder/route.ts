@@ -112,8 +112,8 @@ export async function POST(request: NextRequest) {
     }
 
     // Prepare previous state for revision tracking
-    const previousState = {};
-    const newState = {};
+    const previousState: Record<number, number> = {};
+    const newState: Record<number, number> = {};
     
     existingSections.forEach(section => {
       previousState[section.id] = section.position;
