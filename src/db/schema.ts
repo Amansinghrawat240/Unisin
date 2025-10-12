@@ -120,6 +120,7 @@ export const playlists = pgTable('playlists', {
   description: text('description'),
   coverUrl: text('cover_url'),
   isPublic: boolean('is_public').default(false),
+  position: integer('position').notNull().default(0),
   createdAt: timestamp('created_at').notNull(),
   updatedAt: timestamp('updated_at').notNull(),
 }, (table) => ({
