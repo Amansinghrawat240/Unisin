@@ -15,7 +15,7 @@ export default function MobileTabBar() {
   ];
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-black border-t border-white/10 pb-safe">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-black border-t border-white/10 safe-area-bottom">
       <div className="flex items-center justify-around h-16 px-2">
         {tabs.map((tab) => {
           const isActive = pathname === tab.href;

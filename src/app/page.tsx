@@ -4,7 +4,6 @@ import { lazy, Suspense, useState, useEffect } from "react";
 import TopNavigation from "@/components/sections/top-navigation";
 import Sidebar from "@/components/sections/sidebar";
 import MobileMenu from "@/components/sections/mobile-menu";
-import MobileBottomNav from "@/components/sections/mobile-bottom-nav";
 
 // Lazy load below-the-fold components
 const PreviewBanner = lazy(() => import("@/components/sections/preview-banner"));
@@ -40,7 +39,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white pb-0">
+    <div className="min-h-screen bg-black text-white">
       {/* Desktop Navigation - Hidden on mobile */}
       <div className="hidden md:block">
         <TopNavigation />
@@ -58,7 +57,7 @@ export default function HomePage() {
           <Sidebar />
         </div>
         
-        <main className="relative z-0 flex-1 h-full overflow-y-auto scrollbar-unisin bg-gradient-to-b from-[#1a1a1a] to-[#121212] p-0 md:p-6 pb-0 md:pb-20">
+        <main className="relative z-0 flex-1 h-full overflow-y-auto scrollbar-unisin bg-gradient-to-b from-[#1a1a1a] to-[#121212] p-0 md:p-6 pb-20 md:pb-20">
           <div className="md:container">
             <div className="mt-0 md:mt-8 px-4 md:px-0">
               <Suspense fallback={<SectionSkeleton />}>
@@ -79,9 +78,6 @@ export default function HomePage() {
           <PreviewBanner />
         </Suspense>
       </div>
-
-      {/* Mobile Bottom Navigation */}
-      <MobileBottomNav />
     </div>
   );
 }
