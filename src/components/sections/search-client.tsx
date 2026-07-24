@@ -234,7 +234,6 @@ export default function SearchClient() {
           <CardContent className="p-3 flex items-center gap-3">
             <div className="h-12 w-12 rounded bg-muted overflow-hidden flex-shrink-0">
               {t.imageUrl ? (
-                // eslint-disable-next-line @next/next/no-img-element
                 <img src={t.imageUrl} alt={t.title} className="h-full w-full object-cover" />
               ) : (
                 <div className="h-full w-full bg-muted" />
@@ -314,7 +313,6 @@ export default function SearchClient() {
         <div key={a.id} className="bg-background-secondary rounded-lg p-3 border border-border/40">
           <div className="aspect-square rounded mb-3 overflow-hidden bg-muted">
             {a.coverUrl ? (
-              // eslint-disable-next-line @next/next/no-img-element
               <img src={a.coverUrl} alt={a.title} className="h-full w-full object-cover" />
             ) : null}
           </div>
@@ -334,7 +332,6 @@ export default function SearchClient() {
         >
           <div className="h-24 w-24 rounded-full overflow-hidden bg-muted">
             {a.imageUrl ? (
-              // eslint-disable-next-line @next/next/no-img-element
               <img src={a.imageUrl} alt={a.name} className="h-full w-full object-cover" />
             ) : null}
           </div>
